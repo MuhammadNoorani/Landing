@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 16 100% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(50, 50, 50, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(50, 50, 50, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400;
+  }
+
+  .card-highlight {
+    @apply border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm rounded-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-[#ff4d00]/20 hover:shadow-[0_0_15px_rgba(255,77,0,0.1)];
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+  }
+
+  .section-subheading {
+    @apply text-lg text-zinc-400 max-w-3xl mx-auto;
+  }
+}
+
