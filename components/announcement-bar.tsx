@@ -28,7 +28,7 @@ export default function AnnouncementBar() {
                   New
                 </span>
                 <p className="text-zinc-300">
-                  Virtual Hackathon • Registration opens April 1st. Early birds get exclusive workshop access.{" "}
+                  Virtual Hackathon • Registration opens April 1st{" "}
                   <Link href="#register" className="text-[#ff4d00] hover:text-[#ff6a2c] inline-flex items-center ml-1">
                     Learn more <ArrowRight className="h-3 w-3 ml-1" />
                   </Link>
@@ -48,4 +48,3 @@ export default function AnnouncementBar() {
     </AnimatePresence>
   )
 }
-

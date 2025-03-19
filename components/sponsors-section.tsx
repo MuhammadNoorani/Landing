@@ -41,8 +41,8 @@ export default function SponsorsSection() {
 
   return (
     <section className="py-24 bg-zinc-950 relative" id="sponsors">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-zinc-950 to-zinc-950"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-zinc-950 to-zinc-950 pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6 relative">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">05</span>
@@ -54,8 +54,8 @@ export default function SponsorsSection() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide"
           >
             <span className="text-white">OUR</span> <span className="text-[#ff4d00]">SPONSORS</span>
@@ -63,8 +63,8 @@ export default function SponsorsSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
             className="text-lg text-zinc-400 font-sans"
           >
             We're proud to partner with leading companies that are helping make this hackathon possible
@@ -77,8 +77,8 @@ export default function SponsorsSection() {
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
                 className="text-2xl font-bold text-white mb-8"
               >
                 {tier.tier}
@@ -90,8 +90,8 @@ export default function SponsorsSection() {
                     key={sponsorIndex}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.3, delay: sponsorIndex * 0.05 }}
-                    viewport={{ once: true }}
                     className="card-highlight p-4 card-hover flex items-center justify-center h-16"
                   >
                     <span className="text-white font-medium">{sponsor.name}</span>
@@ -105,8 +105,8 @@ export default function SponsorsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="mt-16 text-center"
         >
           <Button variant="orange-gradient" size="lg" className="rounded-full">
@@ -117,4 +117,3 @@ export default function SponsorsSection() {
     </section>
   )
 }
-

@@ -10,9 +10,15 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [showRegisterButton, setShowRegisterButton] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
+      const heroSection = document.getElementById('hero')
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+        setShowRegisterButton(window.scrollY > heroBottom)
+      }
       setScrolled(window.scrollY > 10)
     }
     window.addEventListener("scroll", handleScroll)
@@ -25,7 +31,6 @@ export default function Navigation() {
     { name: "Prizes", href: "#prizes" },
     { name: "Judges", href: "#judges" },
     { name: "Sponsors", href: "#sponsors" },
-    { name: "Register", href: "#register" },
     { name: "FAQ", href: "#faq" },
   ]
 
@@ -33,7 +38,7 @@ export default function Navigation() {
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full pt-6">
       <div
         className={cn(
-          "px-6 py-4 rounded-full transition-all duration-500 max-w-5xl w-full",
+          "px-4 sm:px-6 py-4 rounded-full transition-all duration-500 max-w-5xl w-full mx-4",
           scrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent",
         )}
       >
@@ -60,13 +65,24 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center">
-            <Button variant="orange-gradient" size="sm" className="hidden md:flex rounded-full">
-              Register Now →
-            </Button>
+          <div className="flex items-center gap-4">
+            {showRegisterButton && (
+              <Button 
+                variant="orange-gradient" 
+                size="sm" 
+                className="hidden md:flex rounded-full" 
+                onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Register Now →
+              </Button>
+            )}
 
             {/* Mobile Navigation Toggle */}
-            <button className="md:hidden text-zinc-300 hover:text-white" onClick={() => setIsOpen(!isOpen)}>
+            <button 
+              className="md:hidden text-zinc-300 hover:text-white p-2" 
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -80,22 +96,31 @@ export default function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-black/95 mt-4 rounded-lg"
             >
-              <div className="py-4 flex flex-col space-y-4">
+              <div className="py-4 flex flex-col">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-sm font-medium text-zinc-400 hover:text-white py-2"
+                    className="text-sm font-medium text-zinc-400 hover:text-white py-3 px-4 border-b border-zinc-800/50 last:border-none"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Button variant="orange-gradient" className="w-full mt-2 rounded-full" onClick={() => setIsOpen(false)}>
-                  Register Now →
-                </Button>
+                <div className="p-4">
+                  <Button 
+                    variant="orange-gradient" 
+                    className="w-full rounded-full"
+                    onClick={() => {
+                      document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' });
+                      setIsOpen(false);
+                    }}
+                  >
+                    Register Now →
+                  </Button>
+                </div>
               </div>
             </motion.div>
           )}
@@ -104,4 +129,3 @@ export default function Navigation() {
     </header>
   )
 }
-

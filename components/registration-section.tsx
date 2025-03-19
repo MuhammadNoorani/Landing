@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -33,7 +32,6 @@ export default function RegistrationSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    // Here you would typically send the data to your backend
     alert("Registration submitted successfully!")
     setFormData({
       name: "",
@@ -60,8 +58,8 @@ export default function RegistrationSection() {
 
   return (
     <section className="py-24 bg-black relative" id="register">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">06</span>
@@ -74,7 +72,7 @@ export default function RegistrationSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide"
           >
             <span className="text-white">REGISTER</span> <span className="text-[#ff4d00]">NOW</span>
@@ -83,7 +81,7 @@ export default function RegistrationSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-lg text-zinc-400 font-sans"
           >
             Secure your spot in the world's largest hackathon and prepare to build something amazing
@@ -95,7 +93,7 @@ export default function RegistrationSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 rounded-lg p-8 hover:border-[#ff4d00]/30 transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ff4d00] to-transparent"></div>
@@ -251,4 +249,3 @@ export default function RegistrationSection() {
     </section>
   )
 }
-

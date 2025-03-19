@@ -59,8 +59,8 @@ export default function AboutSection() {
 
   return (
     <section className="py-24 bg-zinc-950 relative" id="about">
-      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5 pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">01</span>
@@ -73,7 +73,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: "some" }}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
             <span className="text-white">About The</span>{" "}
@@ -83,8 +83,8 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-lg text-zinc-400 font-sans"
+            viewport={{ once: false, amount: "some" }}
+            className="text-lg text-zinc-400 font-sans px-4 sm:px-0"
           >
             Join the world's most innovative minds for 48 hours of coding, creativity, and collaboration. Build
             groundbreaking projects, network with industry leaders, and compete for massive prizes.
@@ -98,7 +98,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: "some" }}
               className="card-highlight p-6 card-hover"
             >
               <div className="flex flex-col items-center text-center">
@@ -115,7 +115,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: "some" }}
           className="card-highlight p-8 card-hover"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
@@ -135,4 +135,3 @@ export default function AboutSection() {
     </section>
   )
 }
-

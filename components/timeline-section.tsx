@@ -5,7 +5,7 @@ import { useRef } from "react"
 
 export default function TimelineSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: false, amount: "some" })
 
   const timelineEvents = [
     {
@@ -37,8 +37,8 @@ export default function TimelineSection() {
 
   return (
     <section className="py-24 bg-black relative" id="timeline">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">02</span>
@@ -51,7 +51,7 @@ export default function TimelineSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: "some" }}
             className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide"
           >
             <span className="text-white">EVENT</span> <span className="text-[#ff4d00]">TIMELINE</span>
@@ -60,7 +60,7 @@ export default function TimelineSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: "some" }}
             className="text-lg text-zinc-400 font-sans"
           >
             Mark your calendar with these important dates to stay on track throughout the hackathon journey
@@ -84,14 +84,14 @@ export default function TimelineSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: "some" }}
                 className="flex gap-6"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: "some" }}
                   className="relative flex items-center justify-center w-11 h-11 rounded-full bg-zinc-900 border border-zinc-800 z-10 shrink-0 group-hover:border-[#ff4d00] transition-colors"
                 >
                   <span className="text-[#ff4d00] font-medium">{index + 1}</span>
@@ -116,4 +116,3 @@ export default function TimelineSection() {
     </section>
   )
 }
-

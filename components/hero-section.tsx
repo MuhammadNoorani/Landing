@@ -36,11 +36,10 @@ export default function HeroSection() {
         this.speedX = (Math.random() - 0.5) * 0.3
         this.speedY = (Math.random() - 0.5) * 0.3
 
-        // Use orange and dark red colors
         const colors = [
-          "rgba(255, 77, 0, 0.3)", // orange
-          "rgba(255, 106, 44, 0.3)", // lighter orange
-          "rgba(220, 38, 38, 0.3)", // dark red
+          "rgba(255, 77, 0, 0.3)",
+          "rgba(255, 106, 44, 0.3)",
+          "rgba(220, 38, 38, 0.3)",
         ]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
@@ -75,7 +74,6 @@ export default function HeroSection() {
       if (!ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Draw grid
       ctx.strokeStyle = "rgba(50, 50, 50, 0.05)"
       ctx.lineWidth = 0.5
 
@@ -94,13 +92,11 @@ export default function HeroSection() {
         ctx.stroke()
       }
 
-      // Update and draw particles
       for (const particle of particles) {
         particle.update()
         particle.draw()
       }
 
-      // Connect particles with lines
       for (let a = 0; a < particles.length; a++) {
         for (let b = a; b < particles.length; b++) {
           const dx = particles[a].x - particles[b].x
@@ -142,12 +138,19 @@ export default function HeroSection() {
     }
   }
 
+  const scrollToRegister = () => {
+    const registerSection = document.getElementById("register")
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden" id="hero">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black pointer-events-none" />
 
-      <div className="container relative z-10 px-6 mx-auto text-center">
+      <div className="container relative z-10 px-4 sm:px-6 mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,12 +171,10 @@ export default function HeroSection() {
 
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight uppercase">
-              <div className="text-white">READY TO</div>
-              <div className="text-white">JOIN</div>
+              <div className="text-white">THE WORLD'S</div>
+              <div className="text-white">LARGEST</div>
               <div>
-                <span className="text-white">THE </span>
-                <span className="text-[#ff4d00]">WINNING</span>
-                <span className="text-white"> SIDE?</span>
+                <span className="text-[#ff4d00]">HACKATHON</span>
               </div>
             </h1>
           </div>
@@ -182,7 +183,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-zinc-400 mb-16 px-4 sm:px-0"
           >
             Join thousands of innovators, creators, and tech enthusiasts to build the future and compete for glory.
           </motion.p>
@@ -191,13 +192,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-wrap gap-4 justify-center pb-10"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-24 sm:mb-32 px-4 sm:px-0"
           >
-            <Button variant="orange-gradient" size="lg" className="rounded-full px-8">
+            <Button variant="orange-gradient" size="lg" className="rounded-full px-8" onClick={scrollToRegister}>
               REGISTER A SPOT
             </Button>
-            <Button variant="dark-gradient" size="lg" className="rounded-full px-8">
-              BOOK A CALL
+            <Button variant="dark-gradient" size="lg" className="rounded-full px-8" onClick={scrollToAbout}>
+              LEARN MORE
             </Button>
           </motion.div>
         </motion.div>
@@ -207,15 +208,14 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-12 sm:bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer"
         onClick={scrollToAbout}
       >
-        <div className="flex flex-col items-center">
-          <span className="text-zinc-500 text-sm mb-2">Scroll to explore</span>
+        <div className="flex flex-col items-center gap-6 sm:gap-8">
+          <span className="text-zinc-500 text-sm">Scroll to explore</span>
           <ArrowDown className="text-[#ff4d00] h-6 w-6 animate-bounce" />
         </div>
       </motion.div>
     </section>
   )
 }
-

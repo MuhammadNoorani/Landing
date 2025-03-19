@@ -18,10 +18,9 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata = {
-  title: "The World's Largest Hackathon",
-  description:
-    "Join thousands of innovators, creators, and tech enthusiasts to build the future and compete for glory.",
-    generator: 'v0.dev'
+  title: "HackForge 2025 - Global Virtual Hackathon",
+  description: "Join thousands of innovators, creators, and tech enthusiasts to build the future and compete for glory.",
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -39,7 +38,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'

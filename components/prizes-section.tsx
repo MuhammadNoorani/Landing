@@ -62,7 +62,7 @@ export default function PrizesSection() {
   return (
     <section className="py-24 bg-zinc-950 relative" id="prizes">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-zinc-950 to-zinc-950"></div>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">03</span>
@@ -112,7 +112,7 @@ export default function PrizesSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categoryPrizes.map((prize, index) => (
             <motion.div
               key={index}
@@ -137,4 +137,3 @@ export default function PrizesSection() {
     </section>
   )
 }
-

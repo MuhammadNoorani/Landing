@@ -46,8 +46,8 @@ export default function FaqSection() {
 
   return (
     <section className="py-24 bg-zinc-950 relative" id="faq">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-zinc-950 to-zinc-950"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-zinc-950 to-zinc-950 pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">07</span>
@@ -60,7 +60,7 @@ export default function FaqSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
             <span className="text-white">Frequently Asked</span>{" "}
@@ -70,7 +70,7 @@ export default function FaqSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-lg text-zinc-400 font-sans"
           >
             Find answers to common questions about the hackathon
@@ -123,4 +123,3 @@ export default function FaqSection() {
     </section>
   )
 }
-

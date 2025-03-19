@@ -46,8 +46,8 @@ export default function JudgesSection() {
 
   return (
     <section className="py-24 bg-black relative" id="judges">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black"></div>
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#ff4d00]/5 via-black to-black pointer-events-none"></div>
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center mb-16">
           <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center mr-3">
             <span className="text-[#ff4d00] text-xs">04</span>
@@ -60,7 +60,7 @@ export default function JudgesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wide"
           >
             <span className="text-white">MEET OUR</span> <span className="text-[#ff4d00]">JUDGES</span>
@@ -69,7 +69,7 @@ export default function JudgesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-lg text-zinc-400 font-sans"
           >
             Our panel of industry experts will evaluate your projects based on innovation, technical complexity, design,
@@ -84,7 +84,7 @@ export default function JudgesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff4d00]/20 to-transparent rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -148,4 +148,3 @@ export default function JudgesSection() {
     </section>
   )
 }
-
